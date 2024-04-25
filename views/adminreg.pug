@@ -1,0 +1,20 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Registration form
+form(action='/register')
+  form#loginForm
+    .form-group
+      label(for='name') fullname
+      input#name.form-control(type='text' required='')
+    .form-group
+      label(for='email') email
+      input#email.form-contrel(type='text' required='')
+      label(for='password') password
+      input#password.form-control(type='password' required='')
+      label(for='text') role
+      input.form-contrel(type='text' id=' Admin role' required='')
+      label(for='button') register
+      input#register.form-contrel(type='button' required='')
+    button.btn.btn-primary.btn-block(type='submit') Login

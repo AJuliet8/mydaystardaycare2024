@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title  Payment Form
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='payment.css')
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#')  Payment Form
+// Main Content
+.container-fluid.main-content
+  .row
+    // Sidebar
+    .col-md-3.sidebar
+      // Sidebar content
+    // Payment Form Area
+    .col-md-9
+      .content
+        h2 Payment Form
+        form#paymentForm
+          .form-group
+            label(for='Ahereza Julie') Full Name
+            input.form-control(type='text' id='Ahereza Julie' required='')
+          .form-group
+            label(for='Julie@gmail.com') Email
+            input.form-control(type='email' id='Julie@gmail.com' required='')
+          .form-group
+            label(for='package') Select Package
+            select#package.form-control(required='')
+              option(value='Half-Day') Half-Day (UGX 100,000)
+              option(value='Full-Day') Full-Day (UGX 150,000)
+              option(value='Monthly') Monthly Payment
+          #monthlyDiv.form-group(style='display: none;')
+            label(for='monthlyAmount') Monthly Amount
+            input#monthlyAmount.form-control(type='text' placeholder='Enter monthly amount')
+          button.btn.btn-primary(type='submit') Payment process
+// Footer
+footer.footer.mt-auto.py-3.bg-dark.text-white
+  .container.text-center
+    span &copy; 2024 Your Company
+// Bootstrap JS and custom JS
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='payment.js')

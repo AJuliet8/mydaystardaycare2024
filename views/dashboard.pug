@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Modern Admin Dashboard
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='dashboard.css')
+  link(rel="stylesheet", href="/public/css/dashboard.css")
+// Navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#') Admin Dashboard
+// Main Content
+.container-fluid.main-content
+  .row
+    // Sidebar
+    .col-md-3.sidebar
+    // Main Content Area
+    .col-md-9
+      .content
+        h2 Welcome to the Admin Dashboard
+        h3 Our Mission
+        p
+          | To provide a safe and stimulating environment where children can learn, grow, and thrive through play, education, and the caring support of dedicated professionals.
+        h3 Registration Forms
+        .col-md-3.sidebar
+          .list-group
+            a.list-group-item.list-group-item-action(href='regsitters.html')
+              | Sitter&apos;s Registration 
+              form
+            a.list-group-item.list-group-item-action(href='babies registration.html') Babies Registration Form
+            a.list-group-item.list-group-item-action(href='payment.html') Payment
+            a.list-group-item.list-group-item-action(href='new dollshop/procurement .html/index.html') Procurement
+// Footer
+footer.footer.mt-auto.py-3.bg-dark.text-white
+  .container.text-center
+    span &copy; 2024 Your Company
+// Bootstrap JS and custom JS
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='dashboard.js')

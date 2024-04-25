@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Parent Registration Form
+  link(rel='stylesheet' href='parents form.css')
+.container
+  h1 Parent Registration Form
+  form#parentForm
+    .form-group
+      label(for='Ahereza') First Name:
+      input#firstName(type='text' name='Ahereza' required='')
+    .form-group
+      label(for='Juliet') Last Name:
+      input#lastName(type='text' name='Juliet' required='')
+    .form-group
+      label(for='email') Email:
+      input#email(type='email' name='Juliet@gmail.com' required='')
+    .form-group
+      label(for='phone') Phone:
+      input#phone(type='tel' name='0782723688' required='')
+    .form-group
+      label(for='Jane') Child&apos;s Name:
+      input#childName(type='text' name='Jane' required='')
+    button(type='submit') Register
+  #output
+script(src='parents form.js')

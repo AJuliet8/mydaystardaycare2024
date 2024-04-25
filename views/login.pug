@@ -1,0 +1,48 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login Form
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='login.css')
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#')
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(href='dashboard.html') Login as Admin
+      li.nav-item
+        a.nav-link(href='parents form.html') Login as Parent
+.container
+  .row.justify-content-center.mt-5
+    .col-md-6
+      .card
+        .card-header Login
+        .card-body
+          form#loginForm
+            .form-group
+              label(for='username') Username
+              input#username.form-control(type='text' required='')
+            .form-group
+              label(for='password') Password
+              input#password.form-control(type='password' required='')
+            button.btn.btn-primary.btn-block(type='submit') Login
+footer.footer.mt-5
+  .container.text-center
+    span.text-muted For more information contact us on the following
+    .footer-contact
+      a(href='#') Website
+      |  | 
+      a(href='#') Phone
+      |  | 
+      a(href='#') Email
+      |  |
+      a(href='#') Follow Us on Social Media
+      |  | 
+      a(href='#') Subscribe to Our Newsletter
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='script.js')

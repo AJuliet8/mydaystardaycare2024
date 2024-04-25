@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Baby Registration Update Form
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href="#") Baby Registration
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href="#") Home
+          li.nav-item
+            a.nav-link(href="#") Update
+          li.nav-item
+            a.nav-link(href="#") Delete
+          li.nav-item
+            a.nav-link(href="#") Check
+    div.container.mt-5
+      h2.mb-4 Update Baby Registration
+      form(action="/update", method="POST")
+        div.form-group
+          label(for="name") Name
+          input.form-control(type="text", id="name", name="name", placeholder="Enter name")
+        div.form-group
+          label(for="gender") Gender
+          select.form-control(id="gender", name="gender")
+            option(value="male") Male
+            option(value="female") Female
+        div.form-group
+          label(for="dob") Date of Birth
+          input.form-control(type="date", id="dob", name="dob")
+        div.form-group
+          label(for="parentName") Parent's Name
+          input.form-control(type="text", id="parentName", name="parentName", placeholder="Enter parent's name")
+        div.form-group
+          label(for="contact") Contact Number
+          input.form-control(type="tel", id="contact", name="contact", placeholder="Enter contact number")
+        button.btn.btn-primary(type="submit") Update
+    footer.mt-5.bg-light.text-center
+      p &copy; 2024 Baby Registration. All rights reserved.
+
+  script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js")
+  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
