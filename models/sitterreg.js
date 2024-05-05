@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const sittersregSchema =new mongoose.Schema({
-Name:{
+const sitterregSchema =new mongoose.Schema({
+name:{
      type:String,
     trim:true
 
@@ -11,44 +11,44 @@ location:{
     trim:true
 
 },
-DOB:{
+dob:{
 
-type:String,
+type:Date,
     trim:true
 },
 
-Gender:{
+gender:{
 type:String,
  trim:true
 },
-Nextofkin:{
+nextofkin:{
 type:String,
  trim:true
  },
- recommendersname:{
+ recommendername:{
 
  type:String,
  trim:true
  },
- Religion:{
+ religion:{
 
  type:String,
-                    trim:true
-                },
-                levelofeducation:{
+    trim:true
+ },
+    educationlevel:{
 
-                    type:String,
-                        trim:true
+    type:String,
+     trim:true
                     },
-                    sittersnumber:{
+    sitternumber:{
 
-                        type:String,
-                            trim:true
-                        },
-                        contact:{
-                            type:String,
+    type:String,
+    trim:true
+},
+                        contacts:{
+                            type:Number,
                             trim:true
 
                         }
 })
-module.exports=mongoose.model("sitter's reg", sittersregSchema)
+module.exports=mongoose.model("sitterreg", sitterregSchema)

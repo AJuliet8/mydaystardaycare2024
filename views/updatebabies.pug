@@ -22,24 +22,24 @@ html(lang="en")
             a.nav-link(href="#") Check
     div.container.mt-5
       h2.mb-4 Update Baby Registration
-      form(action="/update", method="POST")
+      form(action="/updatebabies", method="POST")
         div.form-group
           label(for="name") Name
-          input.form-control(type="text", id="name", name="name", placeholder="Enter name")
+          input.form-control(type="text", id="name", name="name", placeholder="Enter name"  value=baby.name)
         div.form-group
           label(for="gender") Gender
-          select.form-control(id="gender", name="gender")
+          select.form-control(id="gender", name="gender"  value=baby.gender)
             option(value="male") Male
             option(value="female") Female
         div.form-group
           label(for="dob") Date of Birth
-          input.form-control(type="date", id="dob", name="dob")
+          input.form-control(type="date", id="dob", name="dob"  value=baby.dob)
         div.form-group
           label(for="parentName") Parent's Name
-          input.form-control(type="text", id="parentName", name="parentName", placeholder="Enter parent's name")
+          input.form-control(type="text", id="parentName", name="parentName", placeholder="Enter parent's name"  value=baby.parentName)
         div.form-group
           label(for="contact") Contact Number
-          input.form-control(type="tel", id="contact", name="contact", placeholder="Enter contact number")
+          input.form-control(type="tel", id="contact", name="contact", placeholder="Enter contact number"value=baby.contact)
         button.btn.btn-primary(type="submit") Update
     footer.mt-5.bg-light.text-center
       p &copy; 2024 Baby Registration. All rights reserved.

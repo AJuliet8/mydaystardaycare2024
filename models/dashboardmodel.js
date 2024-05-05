@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const babySchema =new mongoose.Schema({
+const dashboardSchema =new mongoose.Schema({
 babiesregistration:{
      type:String,
     trim:true
@@ -15,7 +15,12 @@ sittersregistration:{
 payment:{
     type:String,
    trim:true
+},
+newdollshop:{
+    type:String,
+   trim:true
 }
 
+
 })
-module.exports=mongoose.model("index", indexSchema)
+module.exports=mongoose.model("dashboard", dashboardSchema)

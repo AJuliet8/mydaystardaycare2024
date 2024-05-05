@@ -1,0 +1,78 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Childcare Payment Form
+  link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet')
+  link(href='/css/pay.css' rel='stylesheet')
+nav.navbar.navbar-expand-lg.navbar-dark
+  a.navbar-brand(href='#') SITTER PAYMENT FORM
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(href='#') Home
+      li.nav-item
+        a.nav-link(href='#') About
+      li.nav-item
+        a.nav-link(href='#') Contact
+.container.mt-5
+  h2 SITTER PAYMENT FORM
+  form#paymentForm
+    .form-group
+      label(for='sittername') Name of  the sitter
+      input#sittername.form-control(type='text' placeholder="Enter child's name")
+    .form-group
+      label(for='childAge') Age of the sitter
+      input#childAge.form-control(type='number' placeholder="Enter child's age")
+    .form-group
+      label(for='action') Period of stay
+      select#action.form-control
+        option Half day 
+        option Full day
+        option monthly 
+      .form-group
+        label(for='childID') ID of Child
+        input#childID.form-control(type='text' placeholder="Enter child's ID")
+      .form-group
+        label(for='contact') Contact
+        input#contact.form-control(type='text' placeholder='Enter contact information')
+      .form-group
+        label(for='address') Address
+        input#address.form-control(type='text' placeholder='Enter address')
+      .form-group
+        label(for='sitterID') ID of Sitter
+        input#sitterID.form-control(type='text' placeholder="Enter sitter's ID")
+      .form-group
+        label(for='action') sitterPayment
+        select#action.form-control
+          option Half day  150,000 
+          option Full day 200,000
+          option monthly 500,000 
+        .form-group
+          .form-group
+            label(for='action') payment days
+            select#action.form-control
+              option Half day payment
+              option Full day payment
+              option monthly payment
+            .form-group
+              label(for='totalPayment') Total Payment (UGX)
+              input#totalPayment.form-control(type='number' placeholder='Enter total payment in UGX')
+            .form-group
+              label(for='payerName') Name of Payer
+              input#payerName.form-control(type='text' placeholder="Enter payer's name")
+            .form-group
+              label(for='paymentDate') Date
+              input#paymentDate.form-control(type='date')
+            .form-group
+              label(for='paymentTime') Time
+              input#paymentTime.form-control(type='time')
+          button.btn.btn-primary(type='submit') Submit
+footer
+  p &copy; 2024 Childcare Payment
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='/js/pay.js')

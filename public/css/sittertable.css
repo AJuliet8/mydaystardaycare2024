@@ -1,0 +1,43 @@
+body {
+    background-image: url('/images/babies.jfif');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  .navbar {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  table {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  th, td {
+    text-align: left;
+  }
+  
+  button {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-control {
+    border-radius: 4px;
+  }
+  

@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-
+;
 // import model
-const Babymodels = require("../model/dashboardRoute");
+const dashboardmodels = require("../models/dashboardmodel");
 
 router.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-router.post("/register's", async (req, res) => {
+router.post("/dashboard", async (req, res) => {
   try {
-    const baby = new dashboardRoute(req.body);
+    const dashboardRoute= new dashboardRoute(req.body);
     console.log();
-   await baby.save();
+   await dashboard.save();
     res.send("dashboard successfully")
     
   } catch (error) {
     res.status(400).send("Sorry, error occurred, dashboard not registered")
-    console.log("Error regisitter's", error)
+    console.log("Error dashboard", error)
     
   }
  

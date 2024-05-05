@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Babysitter List
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/sittertable.css")
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        a.navbar-brand(href="#") Sitter List
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href="/add") Add Sitter
+    div.container.mt-5
+      h2.mb-4 Sitter List
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Location
+            th DOB
+            th Gender
+            th Next of Kin
+            th Recommender's Name
+            th Religion
+            th Level of Education
+            th Sitter's Number
+            th Contact
+        tbody
+          tr
+            if sitters.length 
+              each sitter in sitters
+                tr 
+                  td #{sitter.name}
+                  td #{sitter.location}
+                  td #{sitter.date}
+                  td #{sitter.gender}
+                  td #{sitter.nextOfKin}
+                  td #{sitter.recommenderName}
+                  td #{sitter.religion}
+                  td #{sitter.levelOfEducation}
+                  td #{sitter.sittersNumber}
+                  td #{sitter.contact}
+                  td
+                    a(href=`sitterUpdate/${sitter._id}`) Update
+                  td      
+                    form(method="POST" action="/delete")
+                      input(type="hidden" name="id" value=sitter._id)
+                      button(type='submit') Delete
+    p.text-center &copy; 2024 Babysitter List. All rights reserved.
+
+  script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js")
+  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

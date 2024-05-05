@@ -4,7 +4,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Login Form
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
-  link(rel='stylesheet' href='login.css')
+  link(rel='stylesheet' href='css/login.css')
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   a.navbar-brand(href='#')
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
@@ -21,13 +21,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .card
         .card-header Login
         .card-body
-          form#loginForm
+          form#loginForm(action='/login', method='POST')
             .form-group
-              label(for='username') Username
-              input#username.form-control(type='text' required='')
+              label(for='email') email
+              input#username.form-control(type='text' name="email" required='')
             .form-group
               label(for='password') Password
-              input#password.form-control(type='password' required='')
+              input#password.form-control(type='password' name="password" required='')
             button.btn.btn-primary.btn-block(type='submit') Login
 footer.footer.mt-5
   .container.text-center

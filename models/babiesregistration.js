@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const babySchema =new mongoose.Schema({
+const babiesregistrationSchema =new mongoose.Schema({
 babyName:{
      type:String,
     trim:true
@@ -33,22 +33,21 @@ type:String,
  parentsName:{
 
  type:String,
-                    trim:true
-                },
-                fee:{
+  trim:true
+ },
+fee:{
+    type:String,
+    trim:true
+ },
+    periodOfStay:{
 
-                    type:String,
-                        trim:true
-                    },
-                    periodOfStay:{
+    type:String,
+    trim:true
+},
+    babyNumber:{
+    type:String,
+    trim:true
 
-                        type:String,
-                            trim:true
-                        },
-                        babyNumber:{
-                            type:String,
-                            trim:true
-
-                        }
+}
 })
-module.exports=mongoose.model("Baby", babySchema)
+module.exports=mongoose.model("Babiesregistration", babiesregistrationSchema)

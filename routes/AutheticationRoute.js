@@ -1,11 +1,13 @@
 const express = require("express");
+// const {appendfile} =require("fs")
 const router = express.Router();
 const passport =require ("passport")
-router.get("./login",(req,re) =>{
-    res.render("login")
+
+router.get("/login",(req,res) =>{
+    res.render("index")
 })
-router.post("/login",passport.authenticate("local",{failureRedirect:"/login"}),(req,res)=>{
-    res.redirect("/babiesreg")
+router.post("/login",passport.authenticate("local",{failureRedirect:"/index"}),(req,res)=>{
+    res.redirect("/index")
 });
 
 router.get("/logout",(req,res)=>{
@@ -15,8 +17,8 @@ req.session.destroy((error)=>{
     return res.status(500).send("error loging out..")
     }
 })
-res.redirect("/login");
+res.redirect("/dasboard");
     }
 
 })
-module.export = Router;
+module.exports = router;

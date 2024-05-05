@@ -5,9 +5,10 @@ head
   title Modern Admin Dashboard
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet' href='dashboard.css')
-  link(rel="stylesheet", href="/public/css/dashboard.css")
+  link(rel="stylesheet", href="/css/dashboard.css")
 // Navbar
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+//- a(href="")button.text-bg-danger logout 
   a.navbar-brand(href='#') Admin Dashboard
 // Main Content
 .container-fluid.main-content
@@ -24,12 +25,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         h3 Registration Forms
         .col-md-3.sidebar
           .list-group
-            a.list-group-item.list-group-item-action(href='regsitters.html')
+            a.list-group-item.list-group-item-action(href='/sitter')
               | Sitter&apos;s Registration 
               form
-            a.list-group-item.list-group-item-action(href='babies registration.html') Babies Registration Form
-            a.list-group-item.list-group-item-action(href='payment.html') Payment
-            a.list-group-item.list-group-item-action(href='new dollshop/procurement .html/index.html') Procurement
+            a.list-group-item.list-group-item-action(href='/babiesreg') Babies Registration Form
+            a.list-group-item.list-group-item-action(href='payment.pug') Payment
+            a.list-group-item.list-group-item-action(href='new dollshop/procurement .html/index.pug') Procurement
+
 // Footer
 footer.footer.mt-auto.py-3.bg-dark.text-white
   .container.text-center

@@ -43,4 +43,4 @@ type:String,
                     
                         
 })
-module.exports=mongoose.model("listof sitter's", listofsitterSchema)
+module.exports=mongoose.model("listofsitter", listofsitterSchema)

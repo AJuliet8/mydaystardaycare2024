@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Registration
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet' href='styles.css')
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    a.navbar-brand(href='#') Admin Registration
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item
+          a.nav-link(href='#') Home
+        li.nav-item
+          a.nav-link(href='#') About
+        li.nav-item
+          a.nav-link(href='#') Contact
+.container.mt-5
+  .row.justify-content-center
+    .col-md-6
+      .card
+        .card-header.bg-primary.text-white Admin Registration Form
+        .card-body
+          form#registrationForm(action="/adminregistration" method='POST')
+            .form-group
+              label(for='fullName') Full Name
+              input#fullName.form-control(type='text' name="fullname" )
+            .form-group
+              label(for='email') Email
+              input#email.form-control(type='email' name="email")
+            .form-group
+              label(for='password') Password
+              input#password.form-control(type='text' name="password")
+            .form-group
+              label(for='confirmpassword') Confirm Password
+              input#confirmpassword.form-control(type='text' name="confirmpassword")
+            //- .form-group
+            //-   label(for='role') Role
+            //-   selection#role.form-control(type='text' name="role")
+            //-      option(value="") (Select a role)
+            //-     option(value="admin") Admin
+            button.btn.btn-primary(type='submit') Register
+
+            
+            a(href='/administration' styles='text')
+footer.footer.mt-5.py-3.bg-dark.text-white
+  .container.text-center
+    | &copy; 2024 Admin Registration System
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

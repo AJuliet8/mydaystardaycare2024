@@ -1,0 +1,69 @@
+
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title List of babies - Daystar Daycare
+  // Bootstrap CSS
+  link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet')
+  // Custom CSS
+  link(rel='stylesheet' href='styles.css')
+  // Navbar
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#') Daystar Daycare
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item.active
+        a.nav-link(href='#') Home
+      li.nav-item
+        a.nav-link(href='#') About
+      li.nav-item
+        a.nav-link(href='#') Contact
+.container.mt-4
+  h2 LIST OF BABIES
+  table.table.table-striped
+    thead
+      tr
+        th Babiesname
+        th Gender
+        th Age
+        th Location
+        th personBrought 
+        th arrivalTime 
+        th parentsNames
+        th fee 
+        th period of stay 
+        th update
+        th delete
+
+    tbody
+      if babies.length 
+      each baby in babies
+       tr
+        td #{baby.babyName}
+        td #{baby.gender}
+        td #{baby.age}
+        td #{baby.location}
+        td #{baby.personName}
+        td #{baby.timeOfArrival}
+        td #{baby.parentsNames}
+        td #{baby.fee}
+        td #{baby.update}
+        td #{baby.delete}
+        td
+           a(href="babiesUpdate/"+baby._id) Update 
+        td      
+          form(method="POST" action="/delete")
+            input(type="hiden" name="id" value=baby._id)
+            button(type='submit') Delete
+            
+
+            
+      
+      // Add more rows as needed
+// Bootstrap JS and dependencies
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

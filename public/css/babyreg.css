@@ -1,0 +1,22 @@
+body {
+    background-color: #f0f2f500;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.295);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+body {
+  
+    background-image: url('/images/baby\ play.jfif');
+    background-size: cover;
+   
+  }

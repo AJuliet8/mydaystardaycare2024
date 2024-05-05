@@ -1,0 +1,98 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* Header Styles */
+  header {
+    background: #333;
+    color: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+  }
+  
+  header .logo {
+    float: left;
+    width: 50px;
+    height: 50px;
+  }
+  
+  header nav {
+    float: right;
+  }
+  
+  header nav ul {
+    margin-top: 25px;
+  }
+  
+  header nav ul li {
+    display: inline;
+    padding: 0 20px;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Hero Section Styles */
+  .hero {
+    /* background: #007bff; */
+    color: #fff;
+    background-color: #3998c6;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    padding: 5px 10px;
+    background: #fff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-style: inherit;
+    /* transition: background 0.3s, color 0.3s; */
+  }
+  
+  .btn:hover {
+    background: #007bff;
+    color: #fff;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    font-size: 0.8em;
+  }
