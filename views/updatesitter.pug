@@ -24,16 +24,16 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   form#registrationForm(action= '/sitterUpdate?id='+sitter._id  method='POST')
     .form-group
       label(for='name') Name
-      input#name.form-control(type='text' placeholder='Enter name' value=sitter.name)
+      input#name.form-control(type='text' placeholder='Enter name' name='name' value=sitter.name)
     .form-group
       label(for='age') Age
-      input#age.form-control(type='number' placeholder='Enter age' value=sitter.age)
+      input#age.form-control(type='number' placeholder='Enter age' name='age' value=sitter.age)
     .form-group
       label(for='contact') Contact Number
-      input#contact.form-control(type='tel' placeholder='Enter contact number' value=sitter.contact)
+      input#contact.form-control(type='tel' placeholder='Enter contact number' name='contacts' value=sitter.contacts)
     .form-group
       label(for='address') Address
-      input#address.form-control(type='text' placeholder='Enter address' value=sitter.address)
+      input#address.form-control(type='text' placeholder='Enter address' name='locationr' value=sitter.location)
     button.btn.btn-primary(type='submit') Update
 footer.mt-5.bg-light.text-center
   p &copy; 2024 Babysitter Management System. All rights reserved.
