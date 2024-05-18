@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Baby Clockin
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles.css')
+  body
+    .container
+      h2.mt-4.mb-4 Baby Clock-In
+      form#registrationForm(action="/clockinsitter", method='POST')
+        input(type="hidden", name="id", value=sitter._id)
+        //- Form fields go here
+        .mb-3
+          label.form-label(for='name') Name
+          input#name.form-control(type='text', name='name')
+        .mb-3
+          label.form-label(for='nextOfKin') Next of Kin
+          input#nextOfKin.form-control(type='text', name='nextOfKin')
+        .mb-3
+          label.form-label(for='nin') NIN
+          input#nin.form-control(type='text', name='nin', required)
+        .mb-3
+          label.form-label(for='recommenderName') Recommender's Name
+          input#recommenderName.form-control(type='text', name='recommenderName')
+        .mb-3
+          label.form-label(for='departuretime') Departure Time
+          input#departuretime.form-control(type='text', name='departuretime')
+          label.form-label(for='contacts') Contacts
+          input#contacts.form-control(type='text', name='contacts')
+        .mb-3
+        .form-group
+          input.form-control(type='hidden', name='status', value='Clockedinsitter')
+        .form-group
+          button#clockInBtn.btn.btn-primary.btn-block(type='submit') Clock In sitter
+
+    // Bootstrap JS and dependencies
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+
+    // Custom JavaScript for clock-in functionality
+    script.
+      document.addEventListener("DOMContentLoaded", () => {
+        const clockInForm = document.getElementById("registrationForm");
+
+        if (clockInForm) {
+          clockInForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            console.log("Clock-in button clicked!"); // Log a message to the console
+            // You can add additional logic here if needed
+            clockInForm.submit(); // Manually submit the form
+          });
+        }
+      });

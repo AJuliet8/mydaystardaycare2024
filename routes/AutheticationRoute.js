@@ -4,10 +4,10 @@ const router = express.Router();
 const passport =require ("passport")
 
 router.get("/login",(req,res) =>{
-    res.render("index")
+    res.render("login")
 })
-router.post("/login",passport.authenticate("local",{failureRedirect:"/index"}),(req,res)=>{
-    res.redirect("/index")
+router.post("/login",passport.authenticate("local",{failureRedirect:"/login"}),(req,res)=>{
+    res.redirect("/dashboard")
 });
 
 router.get("/logout",(req,res)=>{
@@ -21,4 +21,10 @@ res.redirect("/dasboard");
     }
 
 })
+
+router.get("/",(req,res) =>{
+    res.render("index")
+})
+
+
 module.exports = router;

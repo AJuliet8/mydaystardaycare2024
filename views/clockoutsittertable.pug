@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Clockout Table
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet' href='styles.css')
+  body
+    .container
+      h2 Clockout Table
+      table.table.table-striped
+        thead
+          tr
+            th Baby Name
+            th Location
+            th DOB
+            th Baby Number
+            th Person Taking
+            th Departuretime
+            th Contact
+            th Status
+            th Actions
+        tbody
+        if sitters.length
+          each sitter in sitters
+            tr
+                td #{sitter.babyName}
+                td #{sitter.location}
+                td #{sitter.parentsName}
+                td #{sitter.sitterNumber}
+                td #{sitter.personTaking}
+                td #{sitter.departuretime}
+                td #{sitter.contact}
+                td #{sitter.status}
+            td
+                a.btn.btn-secondary.btn-sm(href='/sitterUpdate/'+sitter._id) Update
+                form(method='POST' action='/delete')
+                  input(type='hidden' name='id' value=sitter._id)
+                  button.btn.btn-danger.btn-sm(type='submit') Delete
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

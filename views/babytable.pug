@@ -29,12 +29,11 @@ head
         th Babiesname
         th Gender
         th Age
-        th Location
-        th personBrought 
-        th arrivalTime 
+        th Location 
         th parentsNames
-        th fee 
-        th period of stay 
+        th contact
+        th status
+        th clockin
         th update
         th delete
 
@@ -46,12 +45,11 @@ head
         td #{baby.gender}
         td #{baby.age}
         td #{baby.location}
-        td #{baby.personName}
-        td #{baby.timeOfArrival}
-        td #{baby.parentsNames}
-        td #{baby.fee}
-        td #{baby.update}
-        td #{baby.delete}
+        td #{baby.parentsName}
+        td #{baby.contact}
+        td #{baby.status}
+        td 
+          a.btn.btn-secondary.btn-sm(href='/clockinbaby/'+baby._id) Clock In
         td
            a(href="babiesUpdate/"+baby._id) Update 
         td      

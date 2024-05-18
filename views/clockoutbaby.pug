@@ -1,0 +1,38 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Baby Clockout
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles.css')
+  body
+    .container
+      h2.mt-4.mb-4 Baby Clock-out
+      form#clockoutForm(action='/clockoutbaby', method='POST') // Updated action to '/clockoutbaby'
+        .form-group
+          label(for='babyName') Name of Baby:
+          input#babyName.form-control(type='text', name='babyName', value=baby.babyName)
+        .form-group
+          label(for='location') Location:
+          input#location.form-control(type='text', name='location', value=baby.location)
+        .form-group
+          label(for='personName') Person who brought in the baby:
+          input#personName.form-control(type='text', name='personName', value=baby.personName)
+        .form-group
+          label(for='timeOfArrival') Time of Arrival:
+          input#timeOfArrival.form-control(type='text', name='timeOfArrival', value=baby.timeArrival)
+        .form-group
+          label(for='parentsName') Parents' Name:
+          input#parentsName.form-control(type='text', name='parentsName', value=baby.parentsName)
+        .form-group
+          label(for='fee') Fee:
+          input#fee.form-control(type='text', name='fee', value=baby.fee)
+        .form-group
+          label(for='periodOfStay') Period of Stay:
+          input#periodStay.form-control(type='text', name='periodOfStay', value=baby.periodStay)
+        .form-group
+          label(for='babyNumber') Baby Number:
+          input#babyNumber.form-control(type='text', name='babyNumber', value=baby.babyNumber)
+        input(type='hidden', name='status', value='clockoutbaby')
+        button.btn.btn-primary.btn-clockout(type='submit') Clock out

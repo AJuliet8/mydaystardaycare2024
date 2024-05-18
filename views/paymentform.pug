@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Babysitting Payment Form
+  link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min/css/paymentform.css' rel='stylesheet')
+  link(rel='stylesheet', href='./css/paymentform.css')
+.container.mt-5
+  .row.justify-content-center
+    .col-md-6
+      .card
+        .card-header.bg-primary.text-white
+          h4.mb-0 Babysitting Payment Form
+        .card-body
+          form#paymentForm
+            .form-group
+              label(for='serviceType') Service Type
+              select#serviceType.form-control(required='')
+                option(value='') Select Service Type
+                option(value='halfDay') Half Day (10,000 NGN)
+                option(value='fullDay') Full Day (15,000 NGN)
+            .form-group
+              label(for='paymentAmount') Payment Amount (UGX)
+              input#paymentAmount.form-control(type='text' readonly='')
+            .form-group
+              label(for='paymentMethod') Payment Method
+              select#paymentMethod.form-control(required='')
+                option(value='') Select Payment Method
+                option(value='creditCard') Credit Card
+                option(value='bankTransfer') Bank Transfer
+            button.btn.btn-primary.btn-block(type='submit') Pay Now
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script.
+  $(document).ready(function () {
+  $('#serviceType').change(function () {
+  var amount = 0;
+  if ($(this).val() === 'halfDay') {
+  amount = 10000;
+  } else if ($(this).val() === 'fullDay') {
+  amount = 15000;
+  }
+  $('#paymentAmount').val(amount);
+  });
+  });

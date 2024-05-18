@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title List of Sitters - Daystar Daycare
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="styles.css")
+  body
+    .container.mt-4
+      h2 LIST OF Sitters
+      table.table.table-striped
+        thead
+          tr
+            th Sitter Name
+            th Location
+            th Next of Kin
+            th Recommender's Name
+            th Departure Time
+            th Person Taking
+            th Status
+            th Clockout
+            th Update
+            th Delete
+
+        tbody
+          each sitter in sitters
+            tr
+              td= sitter.name
+              td= sitter.location
+              td= sitter.nextOfKin
+              td= sitter.recommenderName
+              td= sitter.departuretime
+              td= sitter.personTaking
+              td= sitter.status
+              td
+                a.btn.btn-secondary.btn-sm(href=`/clockoutsitter/${sitter._id}`) Clock out
+              td
+                a.btn.btn-primary.btn-sm(href=`/sitterUpdate/${sitter._id}`) Update 
+              td      
+                form(method="POST", action="/delete")
+                  input(type="hidden", name="id", value=sitter._id)
+                  button.btn.btn-danger.btn-sm(type="submit") Delete
+
+  // Bootstrap JS and dependencies
+  script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js")
+  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

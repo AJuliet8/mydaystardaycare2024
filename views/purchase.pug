@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Purchase Form
+  // Bootstrap CSS
+  link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet')
+  // Custom CSS
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#') Purchase Form
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item.active
+        a.nav-link(href='#')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#') About
+      li.nav-item
+        a.nav-link(href='#') Contact
+.container
+  form
+    .form-group
+      label(for='itemName') Item Name
+      select#itemName.form-control
+        option(value='fruits') Fruits
+        option(value='milk') Milk
+        option(value='diapers') Diapers
+    .form-row
+      .form-group.col-md-6
+        label(for='quantity') Quantity
+        input#quantity.form-control(type='number' placeholder='Enter quantity')
+      .form-group.col-md-6
+        label(for='unitCost') Unit Cost ($)
+        input#unitCost.form-control(type='number' placeholder='Enter unit cost')
+    .form-group
+      label(for='totalAmount') Total Amount ($)
+      input#totalAmount.form-control(type='number' placeholder='Total amount' readonly='')
+    button.btn.btn-primary(type='submit') Submit
+footer.footer
+  .container.text-center
+    span &copy; 2024 Purchase Form. All Rights Reserved.
+// Bootstrap JS and jQuery
+script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+// Custom script for calculating total amount
+script.
+  $(document).ready(function() {
+  $('#quantity, #unitCost').keyup(function() {
+  var quantity = parseFloat($('#quantity').val());
+  var unitCost = parseFloat($('#unitCost').val());
+  var totalAmount = quantity * unitCost;
+  $('#totalAmount').val(totalAmount.toFixed(2));
+  });
+  });

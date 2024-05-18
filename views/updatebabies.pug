@@ -5,6 +5,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Baby Registration Update Form
     link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       a.navbar-brand(href="#") Baby Registration
@@ -20,27 +21,29 @@ html(lang="en")
             a.nav-link(href="#") Delete
           li.nav-item
             a.nav-link(href="#") Check
+
     div.container.mt-5
       h2.mb-4 Update Baby Registration
       form(action="/updatebabies", method="POST")
         div.form-group
           label(for="name") Name
-          input.form-control(type="text", id="name", name="name", placeholder="Enter name"  value=baby.name)
+          input.form-control(type="text", id="name", name="name", placeholder="Enter name", value=baby.name)
         div.form-group
           label(for="gender") Gender
-          select.form-control(id="gender", name="gender"  value=baby.gender)
-            option(value="male") Male
-            option(value="female") Female
+          select.form-control(id="gender", name="gender")
+            option(value="male", selected=baby.gender === "male") Male
+            option(value="female", selected=baby.gender === "female") Female
         div.form-group
           label(for="dob") Date of Birth
-          input.form-control(type="date", id="dob", name="dob"  value=baby.dob)
+          input.form-control(type="date", id="dob", name="dob", value=baby.dob)
         div.form-group
           label(for="parentName") Parent's Name
-          input.form-control(type="text", id="parentName", name="parentName", placeholder="Enter parent's name"  value=baby.parentName)
+          input.form-control(type="text", id="parentName", name="parentName", placeholder="Enter parent's name", value=baby.parentName)
         div.form-group
           label(for="contact") Contact Number
-          input.form-control(type="tel", id="contact", name="contact", placeholder="Enter contact number"value=baby.contact)
+          input.form-control(type="tel", id="contact", name="contact", placeholder="Enter contact number", value=baby.contact)
         button.btn.btn-primary(type="submit") Update
+
     footer.mt-5.bg-light.text-center
       p &copy; 2024 Baby Registration. All rights reserved.
 

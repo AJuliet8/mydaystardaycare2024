@@ -45,7 +45,17 @@ type:String,
     type:String,
     trim:true
 },
-                        contacts:{
+departuretime:{
+
+    type:String,
+    trim:true
+},
+personTaking:{
+
+    type:String,
+    trim:true
+},
+                                                   contacts:{
                             type:Number,
                             trim:true
 

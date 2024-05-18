@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Baby Clockin
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='styles.css')
+  body
+    .container
+      h2.mt-4.mb-4 Baby Clock-In
+      form#registrationForm(action="/clockinbaby", method='POST')
+        input(type="hidden", name="id", value=baby._id)
+        .form-group
+          label(for='babyName') Name of Baby:
+          input#babyName.form-control(type='text', name='babyName', value=baby.babyName, readonly)
+        .form-group
+          label(for='location') Location:
+          input#location.form-control(type='text', name='location', value=baby.location, readonly)
+        .form-group
+          label(for='personName') Person who brought in the baby:
+          input#personName.form-control(type='text', name='personName', value=baby.personName)
+        .form-group
+          label(for='timeOfArrival') Time Of Arrival:
+          input#timeArrival.form-control(type='text', name='timeOfArrival', value=baby.timeOfArrival)
+        .form-group
+          label(for='parentsName') Parents' Name:
+          input#parentsName.form-control(type='text', name='parentsName', value=baby.parentsName)
+        .form-group
+          label(for='serviceType') Service Type
+          select#serviceType.form-control(name='serviceType', required)
+            option(value='', selected, disabled) Select Service Type
+            option(value='10000', selected=(baby.serviceType=='halfDay')) Half Day (10,000 UGX)
+            option(value='15000', selected=(baby.serviceType=='fullDay')) Full Day (15,000 UGX)
+        .form-group
+          label(for='babyNumber') Baby Number:
+          input#babyNumber.form-control(type='text', name='babyNumber', value=baby.babyNumber, readonly)
+        .form-group
+          input.form-control(type='hidden', name='status', value='ClockedInbaby')
+        .form-group
+          button.btn.btn-primary.btn-block(type='submit') Clock In baby

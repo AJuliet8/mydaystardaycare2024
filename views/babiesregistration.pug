@@ -13,43 +13,43 @@ html(lang='en')
         main
           .mb-3
             label.form-label(for='babyName') Name of the Baby
-            input#babyName.form-control(type='text', name='babyName', required='')
+            input#babyName.form-control(type='text', name='babyName')
+          
+          .mb-3
+            label.form-label(for='dob') Date of Birth
+            input#dob.form-control(type='date', name='dob')
+          
           .mb-3
             label.form-label(for='gender') Gender
-            select#gender.form-select(name='gender', required='')
+            select#gender.form-select(name='gender')
               option(value='', selected disabled) Choose...
               option(value='male') Male
               option(value='female') Female
+          
           .mb-3
             label.form-label(for='age') Age
-            input#age.form-control(type='number', name='age', required='')
+            input#age.form-control(type='number', name='age')
+          
           .mb-3
             label.form-label(for='location') Location
-            input#location.form-control(type='text', name='location', required='')
+            input#location.form-control(type='text', name='location')
+          
           .mb-3
-            label.form-label(for='personBrought') Name of the Person Who Brought the Baby
-            input#personBrought.form-control(type='text', name='personBrought', required='')
+            label.form-label(for='educationLevel') Level of Education
+            input#educationLevel.form-control(type='text', name='educationlevel')
+          
           .mb-3
-            label.form-label(for='arrivalTime') Time of Arrival
-            input#arrivalTime.form-control(type='time', name='arrivalTime', required='')
-          .mb-3
-            label.form-label(for='parentsNames') Parents' Names
-            input#parentsNames.form-control(type='text', name='parentsNames', required='')
-          .mb-3
-            label.form-label(for='fee') Fee in UGX
-            input#fee.form-control(type='number', name='fee', required='')
-          .mb-3
-            label.form-label(for='periodOfStay') Period of Stay
-            input#periodOfStay.form-control(type='text', name='periodOfStay', required='')
+            label.form-label(for='parentsName') Parents' Name
+            input#parentsNames.form-control(type='text', name='parentsNames')
+          
           .mb-3
             label.form-label(for='babyNumber') Baby Number
-            input#babyNumber.form-control(type='text', name='babyNumber', required='')
+            input#babyNumber.form-control(type='text', name='babyNumber')
+          
           .mb-3
-            label.form-label(for='personTaking') Name of the Person Taking the Baby
-            input#personTaking.form-control(type='text', name='personTaking', required='')
-          .mb-3
-            label.form-label(for='departureTime') Time
-            input#departureTime.form-control(type='time', name='departureTime', required='')
+            label.form-label(for='contact') Contact
+            input#contact.form-control(type='text', name='contact')
+          
           button.btn.btn-primary(type='submit') Register
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
     script(src='babies-registration.js')

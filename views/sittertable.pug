@@ -24,34 +24,35 @@ html(lang="en")
             th Name
             th Location
             th DOB
-            th Gender
             th Next of Kin
-            th Recommender's Name
             th Religion
             th Level of Education
             th Sitter's Number
             th Contact
+            th status
+            th clockin
+            th update
+            th delete
         tbody
-          tr
-            if sitters.length 
-              each sitter in sitters
-                tr 
-                  td #{sitter.name}
-                  td #{sitter.location}
-                  td #{sitter.date}
-                  td #{sitter.gender}
-                  td #{sitter.nextOfKin}
-                  td #{sitter.recommenderName}
-                  td #{sitter.religion}
-                  td #{sitter.levelOfEducation}
-                  td #{sitter.sittersNumber}
-                  td #{sitter.contact}
-                  td
-                    a(href=`sitterUpdate/${sitter._id}`) Update
-                  td      
-                    form(method="POST" action="/delete")
-                      input(type="hidden" name="id" value=sitter._id)
-                      button(type='submit') Delete
+          each sitter in sitters
+            tr
+              td #{sitter.name}
+              td #{sitter.location}
+              td #{sitter.dob}
+              td #{sitter.nextofkin}
+              td #{sitter.religion}
+              td #{sitter.educationlevel}
+              td #{sitter.sitternumber}
+              td #{sitter.contacts}
+              td #{sitter.status}
+              td
+                a.btn.btn-secondary.btn-sm(href='/clockinsitter/'+sitter._id) Clock In
+              td
+                a(href=`sitterUpdate/${sitter._id}`) Update
+              td
+                form(method="POST" action="/delete")
+                  input(type="hidden" name="id" value=sitter._id)
+                  button(type='submit') Delete
     p.text-center &copy; 2024 Babysitter List. All rights reserved.
 
   script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")

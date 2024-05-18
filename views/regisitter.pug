@@ -12,45 +12,48 @@ html(lang='en')
       form#registrationForm(action='/sitter', method='POST')
         .mb-3
           label.form-label(for='name') Name
-          input#name.form-control(type='text', name="name")
+          input#name.form-control(type='text', name='name')
         .mb-3
           label.form-label(for='location') Location
-          input#location.form-control(type='text', name="location")
+          input#location.form-control(type='text', name='location')
         .mb-3
           label.form-label(for='dob') Date of Birth
-          input#dob.form-control(type='date', name="dob")
+          input#dob.form-control(type='date', name='dob')
         .mb-3
           label.form-label(for='gender') Gender
-          select#gender(name=gender)
+          select#gender.form-select(name='gender')
             option(value='', selected disabled) Select...
             option(value='male') Male
             option(value='female') Female
         .mb-3
           label.form-label(for='nextOfKin') Next of Kin
-          input#nextOfKin.form-control(type='text', name="nextofkin")
+          input#nextOfKin.form-control(type='text', name='nextOfKin')
         .mb-3
           label.form-label(for='nin') NIN
-          input#nin.form-control(type='text', required='')
+          input#nin.form-control(type='text', name='nin', required)
         .mb-3
           label.form-label(for='recommenderName') Recommender's Name
-          input#recommenderName.form-control(type='text', name="recommendername")
+          input#recommenderName.form-control(type='text', name='recommenderName')
         .mb-3
           label.form-label(for='religion') Religion
-          select#religion(name="religion")
+          select#religion.form-select(name='religion')
             option(value='', selected disabled) Select...
             option(value='molem') Molem
             option(value='christian') Christian
             option(value='catholic') Catholic
             option(value='bornAgain') Born again
         .mb-3
-          label.form-label(for='educationLevel') Level of Education
-          input#educationLevel.form-control(type='text',name="educationlevel")
-        .mb-3
           label.form-label(for='sittersNumber') Sitter's Number
-          input#sittersNumber.form-control(type='text', name="sitternumber")
+          input#sittersNumber.form-control(type='text', name='sittersNumber')
+        .mb-3
+          label.form-label(for='departuretime') Departure Time
+          input#departuretime.form-control(type='text', name='departuretime')
+        .mb-3
+          label.form-label(for='personTaking') Person Taking
+          input#personTaking.form-control(type='text', name='personTaking')
         .mb-3
           label.form-label(for='contacts') Contacts
-          input#contacts.form-control(type='tel', name="contacts")
+          input#contacts.form-control(type='tel', name='contacts')
         button.btn.btn-primary(type='submit') Register
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js')
     script(src='regsiters.js')

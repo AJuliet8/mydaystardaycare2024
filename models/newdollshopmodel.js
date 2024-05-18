@@ -1,19 +1,28 @@
-const mongoose = require("mongoose");
-const passportLocalMongoose = require("passport-local-mongoose");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const newdollshopSchema = new mongoose.Schema({
-  shoppingcart: {
+const newDollshopSchema = new Schema({
+  dollName: {
     type: String,
     trim: true
   },
-  dollshop: {
+  dollDescription: {
+    type: String,
+    trim: true
+  },
+  dollPrice: {
+    type: String,
+    trim: true
+  },
+  typeOfDoll: {
+    type: String,
+    trim: true
+  },
+  amount: {
     type: String,
     trim: true
   }
-
-  
 });
 
-
-
-module.exports = mongoose.model("newdollshopmodel", newdollshopSchema);
+const newDollshop = mongoose.model('newDollshop', newDollshopSchema);
+module.exports = newDollshop;

@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Doll Shop
+    // Bootstrap CSS
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet")
+    // Custom CSS
+    link(rel="stylesheet" href="/styles.css")
+  body
+    // Navigation Bar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      a.navbar-brand(href="#") Doll Shop
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href="#") Home
+          li.nav-item
+            a.nav-link(href="#") Products
+          li.nav-item
+            a.nav-link(href="#") Contact
+
+    // Add Doll Form
+    .container.mt-5.pt-5
+      .row.justify-content-center
+        .col-md-6
+          h2.mb-4 Add Doll
+          form#addDollForm(method="POST" action="/add-doll")
+            .form-group
+              label(for="dollName") Doll Name
+              input#dollName.form-control(type="text" name="dollName" placeholder="Enter doll name" required)
+            .form-group
+              label(for="dollDescription") Description
+              textarea#dollDescription.form-control(name="dollDescription" rows="3" placeholder="Enter description" required)
+            .form-group
+              label(for="dollPrice") Price
+              input#dollPrice.form-control(type="number" name="dollPrice" placeholder="Enter price" required)
+            .form-group
+              label(for="typeOfDoll") Type of Doll
+              input#typeOfDoll.form-control(type="text" name="typeOfDoll" placeholder="Enter type of doll" required)
+            .form-group
+              label(for="amount") Amount
+              input#amount.form-control(type="number" name="amount" placeholder="Enter amount" required)
+            button.btn.btn-primary(type="submit") Submit
+
+    // Dolls Table
+    .container.table-container.mt-5
+      h2.mb-4 Dolls
+      table.table
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') Doll Name
+            th(scope='col') Price (UGX)
+            th(scope='col') Description
+            th(scope='col') Type of Doll
+            th(scope='col') Amount (UGX)
+            th(scope='col') Actions
+        tbody
+          each doll, index in dolls
+            tr
+              th(scope='row')= index + 1
+              td= doll.dollName
+              td= doll.dollPrice
+              td= doll.dollDescription
+              td= doll.typeOfDoll
+              td= doll.amount
+              td
+                button.btn.btn-info.btn-sm Update
+                button.btn.btn-danger.btn-sm Delete
+                button.btn.btn-success.btn-sm Sell
+                button.btn.btn-primary.btn-sm Add to Cart
+
+    // Footer
+    footer.footer
+      .container
+        span.text-muted &copy; 2024 Doll Shop. All Rights Reserved.
+
+    // Bootstrap JS and dependencies
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")

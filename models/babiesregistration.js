@@ -6,6 +6,11 @@ babyName:{
     trim:true
 
 },
+dob:{
+    type:String,
+   trim:true
+},
+
 gender:{
     type:String,
     trim:true
@@ -21,6 +26,7 @@ location:{
 type:String,
  trim:true
 },
+
 personName:{
 type:String,
  trim:true
@@ -35,8 +41,8 @@ type:String,
  type:String,
   trim:true
  },
-fee:{
-    type:String,
+serviceType:{
+    type:Number,
     trim:true
  },
     periodOfStay:{
@@ -48,6 +54,23 @@ fee:{
     type:String,
     trim:true
 
+},
+
+contact:{
+    type:String,
+    trim:true
+
+},
+personTaking:{
+    type:String,
+    trim:true
+
+},
+status:{
+    type:String,
+    trim:true
+    
+
 }
 })
-module.exports=mongoose.model("Babiesregistration", babiesregistrationSchema)
+module.exports = mongoose.model("Babiesregistration", babiesregistrationSchema)

@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Clocked Out Babies Table
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="styles.css")
+  body
+    .container
+      h2 Clocked Out Babies Table
+      table.table.table-striped
+        thead
+          tr
+            th Baby Name
+            th Location
+            th Parents Name
+            th Baby Number
+            th Person Taking
+            th Contact
+            th Status
+            th Actions
+        tbody
+          each baby in babies
+            tr
+              td= baby.babyName
+              td= baby.location
+              td= baby.parentsName || 'johndeo'
+              td= baby.babyNumber
+              td= baby.personTaking || 'peter'
+              td= baby.contact
+              td= baby.status
+              td
+                a.btn.btn-secondary.btn-sm(href=`/babiesUpdate/${baby._id}`) Update
+                form(action="/delete", method="POST")
+                  input(type="hidden", name="id", value=baby._id)
+                  button.btn.btn-danger.btn-sm(type="submit") Delete
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
