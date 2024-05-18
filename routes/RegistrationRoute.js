@@ -5,9 +5,9 @@ const router = express.Router();
 console.log(__dirname); // This will help in debugging the current directory path
 
 // Adjust the model imports as per your project structure
-const adminModelPath = path.join(__dirname, "../models/adminmodel");
-console.log(`Loading Admin model from: ${adminModelPath}`);
-const Admin = require(adminModelPath); // Adjust this path if necessary
+// const adminModelPath = path.join(__dirname, "../models/adminmodel");
+// console.log(`Loading Admin model from: ${adminModelPath}`);
+// const Admin = require(adminModelPath); // Adjust this path if necessary
 
 const registrationModelPath = path.join(__dirname, "../models/registrationmodel");
 console.log(`Loading Registration model from: ${registrationModelPath}`);
