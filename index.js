@@ -5,7 +5,7 @@ const passport = require("passport");
 const expressSession = require("express-session")({
   secret: "secret",
   resave: false,
-  saveUnitialized: false,
+  saveUninitialized: false,
 });
 require("dotenv").config();
 
@@ -38,8 +38,8 @@ const newDollshopRoute = require("./routes/newDollshopRoute");
 
 
 mongoose.connect(process.env.DATABASE, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
 });
 mongoose.connection
   .once("open", () => {
