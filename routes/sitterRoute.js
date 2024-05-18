@@ -11,7 +11,7 @@ router.post("/sitter", async (req, res) => {
   try {
     const sitter = new Sitterreg(req.body);
     await sitter.save();
-    res.redirect("/sittertable");
+    res.redirect("/sitterlist");
   } catch (error) {
     console.log("Error registering sitter:", error);
     res.status(400).send("Sorry, an error occurred during sitter registration.");
