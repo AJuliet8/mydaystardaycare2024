@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose"); // for mongodb
 const path = require("path"); //for pug
 const passport = require("passport");
+
 const expressSession = require("express-session")({
   secret: "secret",
   resave: false,
@@ -15,7 +16,7 @@ const registrationmodel = require("./models/registrationmodel");
 const dashboardmodel = require("./models/dashboardmodel");
 const sitterpaymentmodel = require("./models/sitterpaymentmodel");
 const babypaymentmodel = require("./models/babypaymentmodel");
-// const newDollshopmodel = require("../models/newDollshopmodel"); // Adjust the path as needed
+const newDollshopmodel = require("./models/newDollshopmodel"); // Adjusted the path as needed
 
 const port = process.env.port || 4000; // listening to port
 // importing routes
