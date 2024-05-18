@@ -15,7 +15,7 @@ const registrationmodel = require("./models/registrationmodel");
 const dashboardmodel = require("./models/dashboardmodel");
 const sitterpaymentmodel = require("./models/sitterpaymentmodel");
 const babypaymentmodel = require("./models/babypaymentmodel");
-const newDollshopmodel = require("../models/newDollshopmodel"); // Adjust the path as needed
+// const newDollshopmodel = require("../models/newDollshopmodel"); // Adjust the path as needed
 
 const port = process.env.port || 4000; // listening to port
 // importing routes
@@ -77,7 +77,7 @@ app.use("/", sitterpaymentRoute);
 app.use("/", sitterpaymentRoute);
 app.use("/", babypaymentRoute);
 app.use("/",paymentformRoute);
-app.use("/",newDollshopRoute);
+// app.use("/",newDollshopRoute);
 
 // app.use("/",parentsformRoudte);
 // app.use("/", parentsformRoute);

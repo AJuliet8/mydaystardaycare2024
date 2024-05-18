@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const newDollshop = require('/models/newDollshopmodel'); // Correct path to the model
+// const newDollshop = require('/models/newDollshopmodel'); // Correct path to the model
 
 // GET route to render the form for adding a doll
 router.get('/add', (req, res) => {

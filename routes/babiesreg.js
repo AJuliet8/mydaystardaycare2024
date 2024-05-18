@@ -1,179 +1,186 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const babiesregistration = require('../models/babiesregistration');
+const sitterreg = require('../models/sitterreg');
 
-// import model
-// const Babymodels = require("../models/babiesregistration");
-const babiesregistration = require("../models/babiesregistration");
-const sitterreg = require("../models/sitterreg");
-
-router.get("/babiesreg", (req, res) => {
-  res.render("babiesregistration");
+// Render the baby registration form
+router.get('/babiesreg', (req, res) => {
+  res.render('babiesregistration');
 });
 
-router.post("/babiesreg", async (req, res) => {
+// Handle baby registration
+router.post('/babiesreg', async (req, res) => {
   try {
     const baby = new babiesregistration(req.body);
-    console.log();
-   await baby.save();
-    res.redirect("/babieslist")
-    
+    await baby.save();
+    res.redirect('/babieslist');
   } catch (error) {
-    res.status(400).send("Sorry, error occurred, baby not registered")
-    console.log("Error babiesregistration", error)
-    
+    res.status(400).send('Sorry, error occurred, baby not registered');
+    console.log('Error babiesregistration', error);
   }
- 
 });
 
-  // Route to handle clocking in a baby (GET request to render the clock-in form)
-router.get("/clockinbaby/:id", async (req, res) => {
+// Render the clock-in form
+router.get('/clockinbaby/:id', async (req, res) => {
   try {
-    // Fetch sitters data
     const sitters = await sitterreg.find();
-    // Find the baby by ID
-    const clockinbaby = await babiesregistration.findOne({ _id: req.params.id });
+    const clockinbaby = await babiesregistration.findById(req.params.id);
     if (!clockinbaby) {
-      // Handle case where baby is not found
-      return res.status(404).send("Baby not found");
+      return res.status(404).send('Baby not found');
     }
-    // Assuming you want to show only babies with status "ClockedIn"
-    const clockedInBabies = await babiesregistration.find({ status: "ClockedIn" });
-    // Render the clock-in form with relevant data
-    res.render("clockinbaby", {
+    const clockedInBabies = await babiesregistration.find({ status: 'ClockedIn' });
+    res.render('clockinbaby', {
       baby: clockinbaby,
       sitters: sitters,
       clockedInBabies: clockedInBabies,
     });
   } catch (error) {
-    console.log("Error finding clockinbaby:", error);
-    res.status(500).send("Unable to find clockinbaby in the database");
+    console.log('Error finding clockinbaby:', error);
+    res.status(500).send('Unable to find clockinbaby in the database');
   }
 });
 
-// Clock in POST route (handle form submission)
-router.post("/clockinbaby", async (req, res) => {
+// Handle clocking in a baby
+router.post('/clockinbaby', async (req, res) => {
   try {
-    // Get baby ID from the form body
-    const babyId = req.body.id; // Assuming your form sends the baby ID in the request body
-    // Update the baby's status to "ClockedIn"
-    const updatedBaby = await babiesregistration.findByIdAndUpdate(babyId, { status: "ClockedIn" }, { new: true });
+    const babyId = req.body.id;
+    const updatedBaby = await babiesregistration.findByIdAndUpdate(babyId, { status: 'ClockedIn' }, { new: true });
     if (!updatedBaby) {
-      // Handle case where baby is not found
-      return res.status(404).send("Baby not found");
+      return res.status(404).send('Baby not found');
     }
-    // Redirect to the page displaying clocked-in babies or any other desired page
-    res.redirect("/clockedinbabies");
+    res.redirect('/clockedinbabies');
   } catch (error) {
-    console.log("Error clocking in baby:", error);
-    res.status(500).send("Unable to clock in baby");
+    console.log('Error clocking in baby:', error);
+    res.status(500).send('Unable to clock in baby');
   }
 });
 
-// Route to render the clock-out table
-router.get("/clockouttable", async (req, res) => {
-    try {
-        const babies = await babiesregistration.find(); // Assuming babiesregistration is your model
-        res.render("clockouttable", { babies });
-    } catch (error) {
-        res.status(400).send("Unable to fetch babies data");
-    }
-});
-
-// Route to render the clockoutbaby page
-router.get("/clockoutbaby/:id", async (req, res) => {
-    try {
-        const clockoutbaby = await babiesregistration.findOne({ _id: req.params.id });
-        res.render("clockoutbaby", {
-            baby: clockoutbaby,
-        });
-    } catch (error) {
-        res.status(400).send("Unable to find item in the database");
-    }
-});
-
-// Route to handle clocking out a baby
-router.post("/clockoutbaby", async (req, res) => {
-    try {
-        const clockoutbaby = await babiesregistration.findOne({ _id: req.body.id });
-        // Perform clock-out logic here, such as updating the status or removing from the list
-        res.redirect("/clockouttable"); // Redirect to the clock-out table page
-    } catch (error) {
-        res.status(400).send("Unable to find item in the database");
-    }
-});
-
-
-// fetching babieslist from database
-router.get("/babieslist", async(req,res)=>{
-  try{
-    let babies =await  babiesregistration.find()
-    res.render("babytable",{babies:babies}) // to display babies from data base
-  }catch(error){
-    res.status(400).send("unable to find babies from database")
-    console.log("unable to find babies from database")
-  }
-
-});
-
-// fetching clocked in babies from db
-router.get("/clockedinbabies", async (req, res)=>{
+// Render the clock-out table
+router.get('/clockouttable', async (req, res) => {
   try {
-    let babies = await babiesregistration.find({status: "ClockedIn"})
-    res.render("clockintable", {babies:babies})
-    console.log("clockinbaby", babies);
-
+    const babies = await babiesregistration.find();
+    res.render('clockouttable', { babies });
   } catch (error) {
-    res.status(400).send("unable to find baby!")
-    console.log("unable to find babies in db", error);
-    
+    res.status(400).send('Unable to fetch babies data');
   }
 });
-// fetching clocked out babies from db
-router.get("/clockedoutbabies", async (req, res)=>{
+
+// Render the clock-out form for a specific baby
+router.get('/clockoutbaby/:id', async (req, res) => {
   try {
-    let babies = await babiesregistration.find({status: "Clockedout"})
-    res.render("clockedouttable", {babies:babies})
-    console.log("clockoutbaby", babies);
-
+    const clockoutbaby = await babiesregistration.findById(req.params.id);
+    if (!clockoutbaby) {
+      return res.status(404).send('Baby not found');
+    }
+    res.render('clockoutbaby', { baby: clockoutbaby });
   } catch (error) {
-    res.status(400).send("unable to find baby!")
-    console.log("unable to find clockedoutbabies in db", error);
-    
+    res.status(400).send('Unable to find item in the database');
   }
 });
 
-
-// delete route for form in database
-router.post("/delete", async(req,res)=>{
-  try{
-    await babiesregistration.deleteOne({_id:req.body.id});
-    res.redirect("back");
-  }catch (error) {
-    res.status(400).send("unable to delete baby from db!");
-  }
-});
-
-
-// updating ababy in the database
-
-router.get("/babiesUpdate/:id",async(req,res)=>{
-  try{
-const babyUpdate =await babiesregistration.findOne({_id:req.params.id})
-res.render("Updatebabies",{baby:babyUpdate})
-  } catch(error){
-res,statu(400).send("unable to find baby from the db")
-console.log("error finding a baby!", error);
-  }
-});
-
-router.post("/babiesUpdate",async(req,res)=>{
+// Handle clocking in a baby
+router.post('/clockinbaby/:id', async (req, res) => {
   try {
-    await  babiesregistration.findOneAndUpdate({_id:req.query.id},req.body);
-    res.redirect("/babieslist");
+    const babyId = req.params.id;
+    // Perform actions to clock in the baby with ID babyId
+    // Assuming the baby is successfully clocked in, redirect to /clockintable
+    res.redirect('/clockintable');
   } catch (error) {
-    res,statu(404).send("unable to update baby from the db");
- 
+    res.status(500).send('Error clocking in baby');
+    console.log('Error clocking in baby:', error);
   }
-})
+});
+// Render the clock-in table
+router.get('/clockintable', async (req, res) => {
+  try {
+    const clockedInBabies = await babiesregistration.find({ status: 'ClockedIn' });
+    res.render('clockintable', { babies: clockedInBabies });
+  } catch (error) {
+    res.status(400).send('Unable to fetch clocked-in babies data');
+    console.log('Error fetching clocked-in babies data:', error);
+  }
+});
+
+
+
+
+// Fetch the list of clocked-in babies
+router.get('/clockedinbabies', async (req, res) => {
+  try {
+    const babies = await babiesregistration.find({ status: 'ClockedIn' });
+    res.render('clockintable', { babies });
+    console.log('clockinbaby', babies);
+  } catch (error) {
+    res.status(400).send('Unable to find baby!');
+    console.log('Unable to find babies in db', error);
+  }
+});
+
+// Fetch the list of clocked-out babies
+router.get('/clockedoutbabies', async (req, res) => {
+  try {
+    const babies = await babiesregistration.find({ status: 'ClockedOut' });
+    res.render('clockedouttable', { babies });
+    console.log('clockoutbaby', babies);
+  } catch (error) {
+    res.status(400).send('Unable to find baby!');
+    console.log('Unable to find clockedoutbabies in db', error);
+  }
+});
+
+// Handle deleting a baby
+router.post('/delete/:id', async (req, res) => {
+  try {
+    await babiesregistration.findByIdAndDelete(req.params.id);
+    res.redirect('/babieslist');
+  } catch (error) {
+    res.status(400).send('Unable to delete baby from db!');
+    console.log('Error deleting baby:', error);
+  }
+});
+
+
+
+
+
+
+
+// Render the update form for a specific baby
+router.get('/babiesUpdate/:id', async (req, res) => {
+  try {
+    const babyUpdate = await babiesregistration.findById(req.params.id);
+    if (!babyUpdate) {
+      return res.status(404).send('Baby not found');
+    }
+    res.render('Updatebabies', { baby: babyUpdate });
+  } catch (error) {
+    res.status(400).send('Unable to find baby from the db');
+    console.log('Error finding a baby!', error);
+  }
+});
+
+// Handle updating a baby's information
+router.post('/babiesUpdate/:id', async (req, res) => {
+  try {
+    await babiesregistration.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.redirect('/babieslist');
+  } catch (error) {
+    res.status(404).send('Unable to update baby from the db');
+    console.log('Error updating baby:', error);
+  }
+});
+
+// Render the list of babies
+router.get('/babieslist', async (req, res) => {
+  try {
+    const babies = await babiesregistration.find();
+    res.render('babytable', { babies });
+  } catch (error) {
+    res.status(400).send('Unable to find babies from database');
+    console.log('Unable to find babies from database', error);
+  }
+});
+
+
 
 module.exports = router;

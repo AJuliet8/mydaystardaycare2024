@@ -14,17 +14,17 @@ html(lang="en")
       #navbarNav.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
           li.nav-item
-            a.nav-link(href="#") Home
+            a.nav-link(href="/") Home
           li.nav-item
-            a.nav-link(href="#") Update
+            a.nav-link(href="/babiesUpdate/#{baby._id}") Update
           li.nav-item
-            a.nav-link(href="#") Delete
+            a.nav-link(href="/delete/#{baby._id}") Delete
           li.nav-item
             a.nav-link(href="#") Check
 
     div.container.mt-5
       h2.mb-4 Update Baby Registration
-      form(action="/updatebabies", method="POST")
+      form(action=`/babiesUpdate/${baby._id}`, method="POST")
         div.form-group
           label(for="name") Name
           input.form-control(type="text", id="name", name="name", placeholder="Enter name", value=baby.name)

@@ -9,7 +9,8 @@ html(lang="en")
   body
     .container
       h2.mt-4.mb-4 Baby Clock-In
-      form#registrationForm(action="/clockinbaby", method='POST')
+      form#registrationForm(action=`/clockinbaby/${baby._id}`, method='POST')
+
         input(type="hidden", name="id", value=baby._id)
         .form-group
           label(for='babyName') Name of Baby:
