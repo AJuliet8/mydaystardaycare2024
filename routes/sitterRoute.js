@@ -14,7 +14,7 @@ router.post("/sitter", async (req, res) => {
     res.redirect("/sitterlist");
   } catch (error) {
     console.log("Error registering sitter:", error);
-    res.status(400).send("Sorry, an error occurred during sitter registration.");
+    res.status(400).json({message:"Sorry, an error occurred during sitter registration.", error: error});
   }
 });
 
@@ -151,7 +151,7 @@ router.post("/clockoutsitter", async (req, res) => {
 router.post("/delete", async (req, res) => {
   try {
     const { id } = req.body;
-    await Sitter.deleteOne({ _id: id });
+    await Sitterreg.deleteOne({ _id: id });
     res.redirect("back");
   } catch (error) {
     console.error("Error deleting sitter:", error);
