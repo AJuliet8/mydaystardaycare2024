@@ -2,19 +2,32 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Modern Admin Dashboard
+  title  Admin Dashboard
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
   link(rel='stylesheet' href='dashboard.css')
-  link(rel="stylesheet", href="/css/dashboard.css")
 // Navbar
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-//- a(href="")button.text-bg-danger logout 
   a.navbar-brand(href='#') Admin Dashboard
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item
+        a.nav-link(href='babiesreg') Babies Registration
+      li.nav-item
+        a.nav-link(href='sitter') Sitters Registration
+      li.nav-item
+        a.nav-link(href='add') Doll Store
+      li.nav-item
+        a.nav-link(href='expenses.html') Expenses
+      li.nav-item
+        a.nav-link(href='payment.html') Payment
 // Main Content
 .container-fluid.main-content
   .row
     // Sidebar
     .col-md-3.sidebar
+      // You can add sidebar content here if needed
     // Main Content Area
     .col-md-9
       .content
@@ -22,21 +35,46 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         h3 Our Mission
         p
           | To provide a safe and stimulating environment where children can learn, grow, and thrive through play, education, and the caring support of dedicated professionals.
-        h3 Registration Forms
-        .col-md-3.sidebar
-          .list-group
-            a.list-group-item.list-group-item-action(href='/sitter')
-              | Sitter&apos;s Registration 
-              form
-            a.list-group-item.list-group-item-action(href='/babiesreg') Babies Registration For
-            a.list-group-item.list-group-item-action(href='paymentform') Payment
-            a.list-group-item.list-group-item-action(href='parentsform') Parents
-             a.list-group-item.list-group-item-action(href='new dollshop/procurement .html/index.pug') Procurement
-
+        .row
+          // Babies Registration Card
+          .col-md-4
+            .card
+              .card-body.text-center
+                h5.card-title Babies Registration
+                img.card-img-top.mx-auto.d-block(src='/images/baby play.jfif' alt='Babies Registration')
+                a.btn.btn-primary.mt-3(href='babiesreg') View Babies
+          // Sitters Registration Card
+          .col-md-4
+            .card
+              .card-body.text-center
+                h5.card-title Sitters Registration
+                img.card-img-top.mx-auto.d-block(src='images/img.jfif' alt='Sitters Registration')
+                a.btn.btn-primary.mt-3(href='sitter') View Sitters
+          // Doll Store Card
+          .col-md-4
+            .card
+              .card-body.text-center
+                h5.card-title Doll Store
+                img.card-img-top.mx-auto.d-block(src='images/peak.jfif' alt='Doll Store')
+                a.btn.btn-primary.mt-3(href='add-doll-form') View Doll Store
+          // Expenses Card
+          .col-md-4.mt-4
+            .card
+              .card-body.text-center
+                h5.card-title Expenses
+                img.card-img-top.mx-auto.d-block(src='images/class.jfif' alt='Expenses')
+                a.btn.btn-primary.mt-3(href='expenses.html') View Expenses
+          // Payment Card
+          .col-md-4.mt-4
+            .card
+              .card-body.text-center
+                h5.card-title Payment
+                img.card-img-top.mx-auto.d-block(src='images/parent lab.jfif' alt='Payment')
+                a.btn.btn-primary.mt-3(href='babypayment') View Payment
 // Footer
 footer.footer.mt-auto.py-3.bg-dark.text-white
   .container.text-center
-    span &copy; 2024 Your Company
+    span &copy; 2024 Daystar Daycare
 // Bootstrap JS and custom JS
 script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
 script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js')

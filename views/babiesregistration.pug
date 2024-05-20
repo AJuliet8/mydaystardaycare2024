@@ -8,48 +8,49 @@ html(lang='en')
     link(rel='stylesheet', href='./css/babyreg.css')
   body
     .container.mt-5
-      h2.text-center.mb-4 Babies Registration Form
-      form#registrationForm(action='/babiesreg', method='POST')
-        main
-          .mb-3
-            label.form-label(for='babyName') Name of the Baby
-            input#babyName.form-control(type='text', name='babyName')
-          
-          .mb-3
-            label.form-label(for='dob') Date of Birth
-            input#dob.form-control(type='date', name='dob')
-          
-          .mb-3
-            label.form-label(for='gender') Gender
-            select#gender.form-select(name='gender')
-              option(value='', selected disabled) Choose...
-              option(value='male') Male
-              option(value='female') Female
-          
-          .mb-3
-            label.form-label(for='age') Age
-            input#age.form-control(type='number', name='age')
-          
-          .mb-3
-            label.form-label(for='location') Location
-            input#location.form-control(type='text', name='location')
-          
-          .mb-3
-            label.form-label(for='educationLevel') Level of Education
-            input#educationLevel.form-control(type='text', name='educationlevel')
-          
-          .mb-3
-            label.form-label(for='parentsName') Parents' Name
-            input#parentsNames.form-control(type='text', name='parentsNames')
-          
-          .mb-3
-            label.form-label(for='babyNumber') Baby Number
-            input#babyNumber.form-control(type='text', name='babyNumber')
-          
-          .mb-3
-            label.form-label(for='contact') Contact
-            input#contact.form-control(type='text', name='contact')
-          
-          button.btn.btn-primary(type='submit') Register
+      .row.justify-content-center
+        .col-md-6
+          h2.text-center.mb-4 Babies Registration Form
+          form#registrationForm(action='/babiesreg', method='POST')
+            .mb-3
+              label.form-label(for='babyName') Name of the Baby
+              input#babyName.form-control(type='text', name='babyName')
+            
+            .mb-3
+              label.form-label(for='dob') Date of Birth
+              input#dob.form-control(type='date', name='dob')
+            
+            .mb-3
+              label.form-label(for='gender') Gender
+              select#gender.form-select(name='gender')
+                option(value='', selected disabled) Choose...
+                option(value='male') Male
+                option(value='female') Female
+            
+            .mb-3
+              label.form-label(for='age') Age
+              input#age.form-control(type='number', name='age')
+            
+            .mb-3
+              label.form-label(for='location') Location
+              input#location.form-control(type='text', name='location')
+            
+            .mb-3
+              label.form-label(for='educationLevel') Level of Education
+              input#educationLevel.form-control(type='text', name='educationlevel')
+            
+            .mb-3
+              label.form-label(for='parentsName') Parents' Name
+              input#parentsNames.form-control(type='text', name='parentsNames')
+            
+            .mb-3
+              label.form-label(for='babyNumber') Baby Number
+              input#babyNumber.form-control(type='text', name='babyNumber')
+            
+            .mb-3
+              label.form-label(for='contact') Contact
+              input#contact.form-control(type='text', name='contact')
+            
+            button.btn.btn-primary.w-100(type='submit') Register
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
     script(src='babies-registration.js')

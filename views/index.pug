@@ -1,59 +1,49 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Daystar Daycare
-  link(rel='stylesheet' href='/css/index.css')
-header
-  .container
-    img.logo(src='/images/jpeg image.jfif' alt='Daystar Daycare Logo')
-    nav
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Landing Page
+    link(rel="stylesheet" href="/css/index.css")
+  body
+    header
+      nav
+        .navbar-left
+          .logo DAYSTAR DAYCARE
+          .subtitle Teaching, Building, and Nurturing
+        .navbar-right
+          div EVERY KID DESERVES SPECIAL ATTENTION
+    
+    section#main-content
+      #welcome
+        h1 WELCOME TO OUR DAYSTAR DAYCARE CENTRE
+        img(src="/images/babie.jfif" alt="Welcome Image")
+        <form>
+      #contact-section
+        #contact
+          h2 Contact Us
+          form(action="#" method="post")
+            label(for="name") Name:
+            input(type="text" id="name" name="name" required)
+            label(for="email") Email:
+            input(type="email" id="email" name="email" required)
+            label(for="message") Message:
+            textarea(id="message" name="message" required)
+            button(type="submit") Submit
+    </form>
+    section#extra-content
+      h2.red-text DAYSTAR DAYCARE
+      h3 Our Mission
+      p To provide a safe and stimulating environment where children can learn, grow, and thrive through play, education, and the caring support of dedicated professionals.
+      h3 Our Core Values
       ul
-        li
-          a(href='#') Home
-        li
-          a(href='#') About
-        li
-          a(href='#') Services
-        li
-          a(href='#') Contact
-section.hero
-  .container
-    h1 Welcome to Daystar Daycare
-    p Providing quality childcare services for your little ones.
-      a.btn(href='/login') Get started
+        li Compassion: Caring for each child as if they were our own.
+        li Integrity: Upholding the highest standards in all our actions.
+        li Excellence: Striving for superior quality in every aspect of care.
+        li Innovation: Embracing change and encouraging creativity.
+        li Community: Building strong, supportive connections among children, parents, and staff.
+    
+    a.get-started(href="/dashboard") Get Started
 
-footer
-  footer.footer
-    .footer-content
-      //
-        <h2>Daystar Daycare</h2>
-        <p><strong>Where Little Stars Shine Brightest</strong></p>
-      .footer-section
-        h3 Our Vision
-        p
-          | To nurture the potential of each child, fostering lifelong learning and creativity in a warm, inclusive environment.
-      .footer-section
-        h3 Our Mission
-        p
-          | To provide a safe and stimulating environment where children can learn, grow, and thrive through play, education, and the caring support of dedicated professionals.
-      .footer-section
-        h3 Our Core Values
-        ul
-          li Compassion: Caring for each child as if they were our own.
-          li Integrity: Upholding the highest standards in all our actions.
-          li Excellence: Striving for superior quality in every aspect of care.
-          li Innovation: Embracing change and encouraging creativity.
-          li
-            | Community: Building strong, supportive connections among children, parents, and staff.
-      .footer-contact
-        a(href='#') Website
-        |  | 
-        a(href='#') Phone
-        |  | 
-        a(href='#') Email
-        |  |
-        a(href='#') Follow Us on Social Media
-        |  | 
-        a(href='#') Subscribe to Our Newsletter
-  script(src='script.js')
+    footer
+      p © 2024 Your Company. All rights reserved.

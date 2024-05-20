@@ -9,7 +9,7 @@ html(lang='en')
   body
     .container
       h2.mt-4.mb-4 Baby Clock-out
-      form#clockoutForm(action='/clockoutbaby', method='POST') // Updated action to '/clockoutbaby'
+      form#clockoutForm(action=`/clockoutbaby/${baby._id}`, method='POST') // Updated action to '/clockoutbaby'
         .form-group
           label(for='babyName') Name of Baby:
           input#babyName.form-control(type='text', name='babyName', value=baby.babyName)
